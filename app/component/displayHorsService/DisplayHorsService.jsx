@@ -32,9 +32,9 @@ export default function DisplayHorsService({horsService, loading, error}) {
           ))}
         </tbody>
       </table>
-    ) : (
+      ) : (
         <div className="h-[90%] w-full flex flex-col justify-center items-center">
-          <img src='/fireman.jpg' className="h-[400px] w-[400px]" />
+          <img src='/fireman.png' className="h-[400px] w-[400px]" />
           <p className="text-3xl text-orange-600 font-bold">Aucun Hors-service</p>
           
         </div>
