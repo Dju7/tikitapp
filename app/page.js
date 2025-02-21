@@ -43,7 +43,7 @@ export default function Home() {
 
         </div>
         <form 
-        className="mt-1 flex flex-col justify-start items-center gap-4 w-full h-[70%] "
+        className="mt-1 flex flex-col justify-start items-center gap-2 w-full h-[70%] "
         onSubmit={loginUser} method="POST"
         >
           <label className="text-zinc-800 font-bold">
