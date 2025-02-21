@@ -8,9 +8,9 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'card': "url('/card.jpg')", 
-        'card1': "url('/card1.jpg')",
-        'card2': "url('/card2.jpg')",
+        'card': "url('/card.webp')", 
+        'card1': "url('/card1.webp')",
+        'card2': "url('/card2.webp')",
         'background': "url('/background.jpg')"
       },
       colors: {
