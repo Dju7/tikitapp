@@ -50,7 +50,7 @@ export default function CardBoard() {
     return (
       <article className="h-full w-full flex justify-center items-center gap-6 px-6">
         <div className="relative z-0 h-[70%] w-1/3 flex justify-center item-center bg-card bg-cover bg-center rounded-xl overflow-hidden shadow-xl shadow-orange-400"> 
-            <div className="absolute z-2 bg-orange-500 bg-opacity-60 h-full w-full"/>
+            <div className="absolute z-2 bg-orange-600 bg-opacity-60 h-full w-full"/>
             <div className="z-10 text-white text-5xl flex flex-col justify-center items-center">
                 <p className="text-white text-9xl">{data.totalConsignes}</p>
                 <p>CONSIGNES</p>
@@ -64,7 +64,7 @@ export default function CardBoard() {
             </div>
         </div>
         <div className="relative z-0 h-[70%] w-1/3 flex justify-center item-center bg-card1 bg-cover bg-center rounded-xl overflow-hidden shadow-xl shadow-orange-400"> 
-            <div className="absolute z-2 bg-orange-500 bg-opacity-70 h-full w-full"/>
+            <div className="absolute z-2 bg-orange-600 bg-opacity-70 h-full w-full"/>
             <div className="z-10 text-white text-5xl flex flex-col justify-center items-center">
                 <p className="text-9xl">{data.totalAnomalies}</p>
                 <p>ANOMALIES</p>
@@ -82,7 +82,7 @@ export default function CardBoard() {
             </div>
         </div>
         <div className="relative z-0 h-[70%] w-1/3 flex justify-center item-center bg-card2 bg-cover bg-center rounded-xl overflow-hidden shadow-xl shadow-orange-400"> 
-            <div className="absolute z-2 bg-orange-500 bg-opacity-70 h-full w-full"/>
+            <div className="absolute z-2 bg-orange-600 bg-opacity-70 h-full w-full"/>
             <div className="z-10 text-white text-5xl flex flex-col justify-center items-center">
                 <p className="text-9xl">{data.totalHorsService}</p>
                 <p>HORS SERVICE</p>
