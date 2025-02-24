@@ -17,9 +17,9 @@ export async function GET(req) {
         horsServiceMag1: horsService.filter(hs=>hs.magasin === 'mag1').length,
         horsServiceMag2: horsService.filter(hs=>hs.magasin === 'mag2').length,
         horsServiceMag3: horsService.filter(hs=>hs.magasin === 'mag3').length,
-        anomaliesPcf: anomalies.filter(pcf=> anomalies.equipement === 'pcf').length,
-        anomaliesBes: anomalies.filter(pcf=> anomalies.equipement === 'bes').length,
-        anomaliesIs: anomalies.filter(pcf=> anomalies.equipement === 'is').length,
+        anomaliesPcf: anomalies.filter(pcf=>pcf.equipement === 'pcf').length,
+        anomaliesBes: anomalies.filter(bes=> bes.equipement === 'bes').length,
+        anomaliesIs: anomalies.filter(is=>is.equipement === 'is').length,
       };
   
       // Retourner les résultats sous forme de JSON avec un statut 200 OK

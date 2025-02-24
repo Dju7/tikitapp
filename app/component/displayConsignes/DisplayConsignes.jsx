@@ -55,7 +55,7 @@ export default function DisplayConsignes({consignes, loading, error}) {
               <td className="w-[8%] border border-orange-600 px-4 py-2">{consigne.equipe}</td>
               <td className="w-[59%] border border-orange-600 px-4 py-2">{consigne.contenu}</td>
               <td className="w-[10%] border border-orange-600 px-4 py-2">{new Date(consigne.fin).toLocaleDateString()}</td>
-              <td onClick={() => handleDelete(consigne.id)} className="cursor-pointer w-[5%] bg-orange-600 text-white border border-orange-600 px-4 py-2"> X </td>
+              <td onClick={() => handleDelete(consigne.id)} className="cursor-pointer w-[3%] bg-orange-600 text-white border border-black p-2"> X </td>
             </tr>
           ))}
         </tbody>

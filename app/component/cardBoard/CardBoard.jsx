@@ -44,8 +44,6 @@ export default function CardBoard() {
     
         fetchData();
       }, []);
-    
-
 
     return (
       <article className="h-full w-full flex justify-center items-center gap-6 px-6">

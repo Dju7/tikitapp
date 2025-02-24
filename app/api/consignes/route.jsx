@@ -50,11 +50,11 @@ export async function PUT(req) {
     const updatedConsigne = await db.consignes.update({
       where: { id },
       data: {
-        date: new Date(date),
+        date: parsedDate,
         agent,
         equipe,
         contenu,
-        fin: new Date(fin),
+        fin: parsedFin,
       },
     });
 
