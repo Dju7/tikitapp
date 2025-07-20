@@ -223,8 +223,34 @@ export default function Page() {
       <div className="min-h-[90%] w-full flex justify-center items-center gap-20 px-6 ">
         {/* Agents en service */}
         <div className="h-[75%] w-[60%] flex flex-col border border-orange-500 bg-black">
-          <div className="h-14 w-full flex justify-center items-center border-b border-orange-400 bg-orange-400">
-            <p>Nom de famille:</p>
+         
+          <div className="h-[90%] overflow-auto flex flex-col justify-start items-center gap-2">
+            <div className="w-full p-2 bg-orange-400 flex justify-center items-center">
+            <p className="text-3xl text-black ">- Equipe en place -</p>
+            </div>
+            {agentsEnService.length === 0 ? (
+              <p className="text-center text-lg text-orange-400 italix">Aucun agent en service</p>
+            ) : (
+              agentsEnService.map((agent) => (
+                <div
+                  key={agent.id}
+                  className="mt-6 w-[90%] p-2 bg-orange-200 text-black rounded-md shadow-md mb-2"
+                >
+                  <p className="font-semibold">
+                    {agent.nom} {agent.prenom}
+                  </p>
+                    <div className="flex justify-between items-center w-full">
+                      <p className="text-sm italic text-orange-600">{agent.fonction}</p>
+                      <p className="text-xs text-gray-600">
+                        Prise de service : {new Date(agent.priseService).toLocaleTimeString()}
+                      </p>
+                    </div>
+                </div>
+              ))
+            )}
+          </div>
+           <div className="h-[10%] w-full flex justify-center items-center border-b border-orange-400 bg-orange-400">
+            <p className="font-bold">Nom de famille:</p>
             <input
               type="text"
               placeholder="Insérez votre nom de famille"
@@ -246,35 +272,12 @@ export default function Page() {
               </button>
             </div>
           </div>
-          <div className="overflow-auto p-4 flex flex-col justify-center items-center gap-2">
-            <p className="text-3xl text-orange-400 ">Equipe en place</p>
-            {agentsEnService.length === 0 ? (
-              <p className="text-center text-orange-400">Aucun agent en service</p>
-            ) : (
-              agentsEnService.map((agent) => (
-                <div
-                  key={agent.id}
-                  className="mt-6 w-[90%] p-2 bg-orange-200 text-black rounded-md shadow-md mb-2"
-                >
-                  <p className="font-semibold">
-                    {agent.nom} {agent.prenom}
-                  </p>
-                    <div className="flex justify-between items-center w-full">
-                      <p className="text-sm italic text-orange-600">{agent.fonction}</p>
-                      <p className="text-xs text-gray-600">
-                        Prise de service : {new Date(agent.priseService).toLocaleTimeString()}
-                      </p>
-                    </div>
-                </div>
-              ))
-            )}
-          </div>
         </div>
 
         {/* Agents fin de service */}
         <div className="h-[75%] w-[25%] border border-orange-400 overflow-hidden">
           <div className="h-14 w-full flex justify-center items-center border-b border-orange-400 bg-orange-400">
-            <p className="font-bold">Liste des Agents disponibles</p>
+            <p className="font-bold text-xl">Liste des Agents disponibles</p>
           </div>
           <div className="overflow-auto h-full w-full justify-center items-center p-4 bg-black">
             {agentsFinDeService.length === 0 ? (
