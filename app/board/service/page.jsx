@@ -220,10 +220,10 @@ export default function Page() {
       </div>
 
       {/* Contenu principal */}
-      <div className="min-h-[90%] w-full flex justify-center items-center gap-20 px-6">
+      <div className="min-h-[90%] w-full flex justify-center items-center gap-20 px-6 ">
         {/* Agents en service */}
-        <div className="h-[70%] w-[60%] flex flex-col border border-orange-500">
-          <div className="h-14 w-full flex justify-center items-center border-b border-orange-400 bg-orange-400/20">
+        <div className="h-[75%] w-[60%] flex flex-col border border-orange-500 bg-black">
+          <div className="h-14 w-full flex justify-center items-center border-b border-orange-400 bg-orange-400">
             <p>Nom de famille:</p>
             <input
               type="text"
@@ -234,26 +234,27 @@ export default function Page() {
             <div className="h-10 w-[50%] flex justify-end items-center px-2 gap-8 ">
               <button
                 onClick={() => handleStatusChange("EN_SERVICE")}
-                className="bg-orange-400 px-4 py-2 rounded"
+                className="bg-black text-orange-400 px-4 py-2 rounded"
               >
                 Prise de Service
               </button>
               <button
                 onClick={() => handleStatusChange("FIN_DE_SERVICE")}
-                className="bg-orange-400 px-4 py-2 rounded"
+                className="bg-black text-orange-400 px-4 py-2 rounded"
               >
                 Fin de Service
               </button>
             </div>
           </div>
-          <div className="overflow-auto p-4">
+          <div className="overflow-auto p-4 flex flex-col justify-center items-center gap-2">
+            <p className="text-3xl text-orange-400 ">Equipe en place</p>
             {agentsEnService.length === 0 ? (
               <p className="text-center text-orange-400">Aucun agent en service</p>
             ) : (
               agentsEnService.map((agent) => (
                 <div
                   key={agent.id}
-                  className="p-2 bg-orange-100 text-black rounded-md shadow-md mb-2"
+                  className="mt-6 w-[90%] p-2 bg-orange-200 text-black rounded-md shadow-md mb-2"
                 >
                   <p className="font-semibold">
                     {agent.nom} {agent.prenom}
@@ -271,11 +272,11 @@ export default function Page() {
         </div>
 
         {/* Agents fin de service */}
-        <div className="h-[70%] w-[25%] border border-orange-400 overflow-hidden">
-          <div className="h-14 w-full flex justify-center items-center border-b border-orange-400 bg-orange-400/20">
-            <p>Liste des Agents disponibles</p>
+        <div className="h-[75%] w-[25%] border border-orange-400 overflow-hidden">
+          <div className="h-14 w-full flex justify-center items-center border-b border-orange-400 bg-orange-400">
+            <p className="font-bold">Liste des Agents disponibles</p>
           </div>
-          <div className="overflow-auto h-full w-full justify-center items-center p-4">
+          <div className="overflow-auto h-full w-full justify-center items-center p-4 bg-black">
             {agentsFinDeService.length === 0 ? (
               <p className="text-center w-full text-orange-400">Aucun agent trouvé</p>
             ) : (
