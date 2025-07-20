@@ -14,10 +14,31 @@ datasource db {
   
 }
 
+enum Fonction {
+  SSIAP1
+  SSIAP2
+  SSIAP3
+}
+
+enum Statut {
+  EN_SERVICE
+  FIN_DE_SERVICE
+}
+
 model User {
   id        Int    @id @default(autoincrement())
   name      String
   password  String
+}
+
+model Agent {
+  id           String   @id @default(uuid())
+  nom          String
+  prenom       String
+  fonction     Fonction
+  statut       Statut   @default(FIN_DE_SERVICE)
+  priseService DateTime?
+  finService   DateTime?
 }
 
 model Consignes {

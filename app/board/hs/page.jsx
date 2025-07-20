@@ -190,7 +190,7 @@ useEffect(() => {
             <input
               id="adresse"
               ref={adresseRef}
-              defaultValue="insérer adresse DI"
+              placeholder="insérer adresse DI"
               className="w-full p-2 bg-orange-200 text-black rounded-xl shadow-xl shadow-orange-800 placeholder-orange-600"
             />
           </div>
