@@ -115,4 +115,30 @@ export async function PUT(req) {
   }
 }
 
+// ✅ DELETE : Supprimer un agent
+export async function DELETE(req) {
+  try {
+    const { id } = await req.json();
+
+    if (!id) {
+      return new Response("ID de l'agent requis", { status: 400 });
+    }
+
+    // Vérifie si l'agent existe
+    const existingAgent = await db.agent.findUnique({ where: { id } });
+
+    if (!existingAgent) {
+      return new Response("Agent non trouvé", { status: 404 });
+    }
+
+    // Supprime l'agent
+    await db.agent.delete({ where: { id } });
+
+    return new Response("Agent supprimé avec succès", { status: 200 });
+  } catch (error) {
+    console.error("[DELETE /api/agent]", error);
+    return new Response("Erreur lors de la suppression de l'agent", { status: 500 });
+  }
+}
+
 

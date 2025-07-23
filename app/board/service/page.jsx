@@ -129,6 +129,35 @@ export default function Page() {
   }
 };
 
+// -----------Supprimer Agent -------------
+
+const handleDelete = async (id) => {
+  const confirmed = window.confirm("Supprimer cet agent ?");
+  if (!confirmed) return;
+
+  try {
+    const res = await fetch("/api/agent", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    });
+
+    if (res.ok) {
+      alert("Agent supprimé avec succès");
+      fetchAgentsFinDeService(); // Mise à jour de la liste
+    } else {
+      const message = await res.text();
+      alert(`Erreur: ${message}`);
+    }
+  } catch (error) {
+    console.error("Erreur lors de la suppression:", error);
+    alert("Erreur réseau lors de la suppression");
+  }
+};
+
+
   const handleModal = () => {
     setIsOpen(!isOpen);
   };
@@ -292,9 +321,17 @@ export default function Page() {
                     {agent.nom} {agent.prenom}
                   </p>
                   <p className="text-sm italic text-orange-600">{agent.fonction}</p>
-                  <p className="text-xs text-gray-600">
-                        fin de service : {new Date(agent.finService).toLocaleTimeString()}
-                      </p>
+                  <div className="flex justify-between items-center">
+                    <p className="text-xs text-gray-600">
+                          fin de service : {new Date(agent.finService).toLocaleTimeString()}
+                    </p>
+                    <button
+                      onClick={() => handleDelete(agent.id)}
+                      className="text-red-500 hover:text-red-700 font-bold"
+                    >
+                      X
+                    </button>
+                  </div>
                 </div>
               ))
             )}
